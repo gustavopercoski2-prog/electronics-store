@@ -1,0 +1,28 @@
+.hero-swiper .swiper-button-next,
+.hero-swiper .swiper-button-prev {
+    color: white;
+    opacity: 0;
+    transition: all 0.2s;
+}
+
+.hero-swiper:hover .swiper-button-next,
+.hero-swiper:hover .swiper-button-prev {
+    opacity: 0.7;
+}
+
+.hero-swiper .swiper-button-next:hover,
+.hero-swiper .swiper-button-prev:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.hero-swiper .swiper-pagination-bullet {
+    background: white;
+    opacity: 0.3;
+}
+
+.hero-swiper .swiper-pagination-bullet-active {
+    opacity: 1;
+    width: 30px;
+    border-radius: 4px;
+}
