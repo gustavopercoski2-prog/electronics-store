@@ -1,5 +1,6 @@
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
+import { ShoppingCart, Info } from "lucide-react";
 
 import ps5Pro from "../../assets/ps5-pro.webp";
 import macbookPro from "../../assets/MacBook-Pro.png";
@@ -49,6 +50,14 @@ const slides = [
 ];
 
 export function HeroSlider() {
+  function handleBuy(product: string) {
+    console.log("Comprar:", product);
+  }
+
+  function handleDetails(product: string) {
+    console.log("Detalhes:", product);
+  }
+
   return (
     <div className="relative w-full overflow-hidden bg-slate-900 md:h-[600px]">
       <Swiper
@@ -67,6 +76,7 @@ export function HeroSlider() {
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
             <div className={`relative h-full ${slide.bg}`}>
+              {/* Gradiente*/}
               <div className="absolute inset-0 bg-gradient-to-r from-black/50 to-transparent" />
 
               <div className="container mx-auto grid h-full grid-cols-1 items-center px-4 md:grid-cols-2">
@@ -82,9 +92,36 @@ export function HeroSlider() {
                   </h2>
 
                   <p className="mt-4 max-w-md text-white/80">{slide.desc}</p>
+
+                  {/* Botoes */}
+                  <div className="mt-6 flex gap-4">
+                    <button
+                      onClick={() => handleBuy(slide.title)}
+                      className={`rounded-full ${slide.accent} px-6 py-3 text-sm font-bold shadow hover:opacity-90 transition ${slide.textColor}`}
+                    >
+                      Comprar Agora
+                    </button>
+
+                    <button
+                      onClick={() => handleBuy(slide.title)}
+                      className="rounded-full border border-white/20 p-3 hover:bg-white/10 transition"
+                    >
+                      <ShoppingCart size={20} />
+                    </button>
+
+                    <button
+                      onClick={() => handleDetails(slide.title)}
+                      className="flex items-center gap-2 rounded-full px-4 py-3 text-sm hover:bg-white/10 transition"
+                    >
+                      <Info size={18} />
+                      Detalhes
+                    </button>
+                  </div>
                 </div>
 
+                {/* Imagem */}
                 <div className="relative flex h-[300px] items-center justify-center md:h-auto">
+                  {/* Glow */}
                   <div
                     className={`absolute h-[300px] w-[300px] rounded-full ${slide.accent} opacity-30 blur-[90px] md:h-[500px] md:w-[500px]`}
                   />
